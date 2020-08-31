@@ -1,0 +1,41 @@
+group 'io.cloudloom.interplay.flutter_star_printer_plugin'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.starmicronics:stario:2.9.0'
+    implementation 'com.starmicronics:starioextension:1.15.0'
+    implementation 'com.starmicronics:smcloudservices:1.4.1'
+    implementation 'com.bugfender.sdk:android:3.+'
+}
