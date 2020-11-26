@@ -46,8 +46,8 @@ public class SendCommand extends AsyncTask<Object, Void, StarPrinterStatus> {
 
     @Override
     protected void onPostExecute(StarPrinterStatus status) {
-        Log.e("FLUTTER_PRINT_info", status);
         try{
+            Log.e("FLUTTER_PRINT_INFO", "Empty paper");
             if (status != null) {
                 super.onPostExecute(status);
 
