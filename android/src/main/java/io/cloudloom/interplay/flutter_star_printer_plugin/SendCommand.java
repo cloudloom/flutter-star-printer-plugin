@@ -46,27 +46,23 @@ public class SendCommand extends AsyncTask<Object, Void, StarPrinterStatus> {
 
     @Override
     protected void onPostExecute(StarPrinterStatus status) {
-        try {
-            Log.e("FLUTTER_PRINT_INFO", "Empty paper");
-            if (status != null) {
-                super.onPostExecute(status);
+        Log.e("FLUTTER_PRINT_INFO", "Empty paper");
+        if (status != null) {
+            super.onPostExecute(status);
 
-                if (status.coverOpen) {
-                    Toast.makeText(context, "Cover open", Toast.LENGTH_LONG).show();
-                    Log.e("FLUTTER_PRINT_ERROR", "Cover open");
-                } else if (status.receiptPaperEmpty) {
-                    Toast.makeText(context, "Empty paper", Toast.LENGTH_LONG).show();
-                    Log.e("FLUTTER_PRINT_ERROR", "Empty paper");
-                } else if (status.offline) {
-                    Toast.makeText(context, "Printer offline", Toast.LENGTH_LONG).show();
-                    Log.e("FLUTTER_PRINT_ERROR", "Printer offline");
-                } else {
-                    Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
-                    Log.i("FLUTTER_PRINT_SUCCESS", "Success");
-                }
+            if (status.coverOpen) {
+                Toast.makeText(context, "Cover open", Toast.LENGTH_LONG).show();
+                Log.e("FLUTTER_PRINT_ERROR", "Cover open");
+            } else if (status.receiptPaperEmpty) {
+                Toast.makeText(context, "Empty paper", Toast.LENGTH_LONG).show();
+                Log.e("FLUTTER_PRINT_ERROR", "Empty paper");
+            } else if (status.offline) {
+                Toast.makeText(context, "Printer offline", Toast.LENGTH_LONG).show();
+                Log.e("FLUTTER_PRINT_ERROR", "Printer offline");
+            } else {
+                Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
+                Log.i("FLUTTER_PRINT_SUCCESS", "Success");
             }
-        } catch (Exception e) {
-            return null;
         }
     }
 }
